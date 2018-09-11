@@ -1,6 +1,9 @@
 version: 1.0-preview-1
 steps:
-  - build: -t {{.Run.Registry}}/helm:{{.Run.ID}} -t {{.Run.Registry}}/helm:v2.11.0-rc.2 -f ./helm/Dockerfile .
-  - cmd: docker push {{.Run.Registry}}/helm:{{.Run.ID}}
-  - cmd: docker push {{.Run.Registry}}/helm:v2.11.0-rc.2
+  - build: -t {{.Run.Registry}}/helm:{{.Run.ID}} -t {{.Run.Registry}}/helm:v2.11.0-rc.2 -t {{.Run.Registry}}/helm:latest -f ./helm/Dockerfile .
+  - push:
+    - {{.Run.Registry}}/helm:{{.Run.ID}}
+    - {{.Run.Registry}}/helm:v2.11.0-rc.2
+    - {{.Run.Registry}}/helm:latest
+
 
