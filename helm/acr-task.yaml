@@ -1,6 +1,6 @@
 version: 1.0-preview-1
 steps:
-  - build: >
+  - build: |
   -t {{.Run.Registry}}/helm:{{.Run.ID}} 
   -t {{.Run.Registry}}/helm:v2.11.0-rc.2 
   -f ./helm/Dockerfile 
