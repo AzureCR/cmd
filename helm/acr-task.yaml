@@ -1,5 +1,6 @@
 version: 1.0-preview-1
 steps:
+  - cmd: bash ls
   - build: -t {{.Run.Registry}}/helm:{{.Run.ID}} -t {{.Run.Registry}}/helm:v2.11.0-rc.2 -f ./Dockerfile ./helm
   - cmd: docker push {{.Run.Registry}}/helm:{{.Run.ID}}
   - cmd: docker push {{.Run.Registry}}/helm:v2.11.0-rc.2
