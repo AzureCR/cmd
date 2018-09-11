@@ -19,11 +19,5 @@ RUN curl -o /tmp/$FILENAME ${HELM_URL} \
   && mv /tmp/linux-amd64/helm /bin/helm \
   && rm -rf /tmp
 
-ADD ./deploy.sh /deploy.sh
+ADD ./helm/deploy.sh /deploy.sh
 ENTRYPOINT ["/deploy.sh"]
-#ADD ./demo42-staging-eus.kubeConfig /demo42-staging-eus.kubeConfig
-# Note: This file is excluded from github to avoid checking in credentials
-# Note: This workflow will be fixed in a future build
-# Note: run az aks list, then az aks get-credentials -n -g to get the right config file
-# Note: copy that file to the root of this directory, and run docker build
-#env KUBECONFIG=/demo42-staging-eus.kubeConfig

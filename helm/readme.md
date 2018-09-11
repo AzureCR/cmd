@@ -6,7 +6,7 @@ az acr task create \
   -n cmd-helm \
   --file ./helm/acr-task.yaml \
   -c https://github.com/AzureCR/cmd.git \
-  --git-access-token ${GIT-TOKEN}
+  --git-access-token ${GIT_TOKEN}
 ```
 ** Prod **
 ```sh
