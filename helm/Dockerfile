@@ -18,6 +18,6 @@ RUN curl -o /tmp/$FILENAME ${HELM_URL} \
   && tar -zxvf /tmp/${FILENAME} -C /tmp \
   && mv /tmp/linux-amd64/helm /bin/helm \
   && rm -rf /tmp
-
+CMD chmod +x ./helm/deploy.sh
 ADD ./helm/deploy.sh /deploy.sh
 ENTRYPOINT ["/deploy.sh"]
