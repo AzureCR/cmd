@@ -8,7 +8,6 @@ az login \
 --password $PASSWORD \
 --tenant $TENANT  > /dev/null
 
-
 az aks get-credentials \
     -g $CLUSTER_RESOURCE_GROUP \
     -n $CLUSTER_NAME 
