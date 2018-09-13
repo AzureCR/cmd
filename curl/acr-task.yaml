@@ -1,0 +1,14 @@
+version: 1.0-preview-1
+steps:
+  - build: >
+      -t {{.Run.Registry}}/curl:{{.Run.ID}} 
+      -t {{.Run.Registry}}/curl:ubuntu-trusty
+      -t {{.Run.Registry}}/curl:latest 
+      -f ./curl/Dockerfile 
+      .
+  - push:
+    - {{.Run.Registry}}/curl:{{.Run.ID}} 
+    - {{.Run.Registry}}/curl:ubuntu-trusty
+    - {{.Run.Registry}}/curl:latest 
+
+

@@ -34,6 +34,7 @@ docker run -it \
 -w /repo \
  bash ls
 
+docker build -t cmd.azurecr-test.io/helm:v2.11.0-rc.2 .
 docker run --rm -it \
   -e SP=$SP \
   -e PASSWORD=$PASSWORD \
