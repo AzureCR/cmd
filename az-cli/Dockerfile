@@ -1,2 +1,3 @@
 FROM  azurecr/azure-cli
-ENTRYPOINT {"az"]
+ADD ./login.sh /login.sh
+ENTRYPOINT ["/login.sh"]
