@@ -1,0 +1,12 @@
+version: 1.0-preview-1
+steps:
+  - build: >
+      -t {{.Run.Registry}}/az-cli:{{.Run.ID}} 
+      -t {{.Run.Registry}}/az-cli:latest 
+      -f ./az-cli/Dockerfile 
+      .
+  - push:
+    - {{.Run.Registry}}/az-cli:{{.Run.ID}}
+    - {{.Run.Registry}}/az-cli:latest
+
+

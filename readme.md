@@ -40,4 +40,13 @@ export ACR_DF_PULL_PWD=$(az keyvault secret show \
             --vault-name ${AKV_NAME} \
             --name demo42-df-pull-pwd \
             --query value -o tsv)
+
+az acr task create \
+    -n az-cli \
+    -f az-cli\acr-task.yaml \
+    -c https://github.com/AzureCR/cmd.git \
+    --git-access-token $GIT_TOKEN
+    -r commands
+
+docker run -e TENANT=$TENANT -e SP=$SP -e PASSWORD=$PASSWORD az-cli
 ```
