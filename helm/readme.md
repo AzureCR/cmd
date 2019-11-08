@@ -1,4 +1,18 @@
 # Helm Charts
+
+## Task to build Helm
+
+  az acr task create \
+    --registry ${ACR_UPSTREAM_NAME} \
+    -n helm3 \
+    -f ./helm/acr-task-helm3.yaml \
+    --context https://github.com/AzureCR/cmd.git \
+    --git-access-token $(az keyvault secret show \
+                          --vault-name $AKV_NAME \
+                          --name $GIT_TOKEN_NAME \
+                          --query value -o tsv)
+##
+
 ```sh
 az acr run \
   --file ./helm/acr-task.yaml \
