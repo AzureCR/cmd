@@ -1,0 +1,14 @@
+version: v1.1.0
+steps:
+  - build: >
+      -t $Registry/mcr/acr/helm:{{.Run.ID}} 
+      -t $Registry/mcr/acr/helm:v3.0.0-rc.3
+      -t $Registry/mcr/acr/helm:latest 
+      -f ./helm/Dockerfile-helm3
+      .
+  - push:
+    - $Registry/mcr/acr/helm:{{.Run.ID}}
+    - $Registry/mcr/acr/helm:v3.0.0-rc.3
+    - $Registry/mcr/acr/helm:latest
+
+

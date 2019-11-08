@@ -1,0 +1,8 @@
+FROM alpine:3.10.3
+ENV VERSION helm-v3.0.0-rc.3 
+MAINTAINER  Sajay Antony <sajaya@microsoft.com>
+RUN apk add --no-cache curl
+RUN curl -LO https://get.helm.sh/${VERSION}-linux-amd64.tar.gz && \
+    tar -xvf helm-v3.0.0-rc.3-linux-amd64.tar.gz && \
+    cp linux-amd64/helm /usr/local/bin 
+CMD ["helm"]
