@@ -12,5 +12,3 @@ steps:
     - $Registry/mcr/acr/helm:v3.0.0-rc.3
     - $Registry/mcr/acr/helm:v3
     - $Registry/mcr/acr/helm:latest
-
-
